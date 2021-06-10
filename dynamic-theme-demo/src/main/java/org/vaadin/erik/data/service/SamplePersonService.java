@@ -1,11 +1,9 @@
-package com.example.application.data.service;
-
-import com.example.application.data.entity.SamplePerson;
+package org.vaadin.erik.data.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vaadin.artur.helpers.CrudService;
-import java.time.LocalDate;
+import org.vaadin.erik.data.entity.SamplePerson;
 
 @Service
 public class SamplePersonService extends CrudService<SamplePerson, Integer> {

@@ -1,4 +1,4 @@
-package com.example.application.data;
+package org.vaadin.erik.data;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

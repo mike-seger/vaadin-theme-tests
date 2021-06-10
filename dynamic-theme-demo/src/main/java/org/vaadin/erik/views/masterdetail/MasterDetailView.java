@@ -1,15 +1,12 @@
-package com.example.application.views.masterdetail;
-
-import java.util.Optional;
-
-import com.example.application.data.entity.SamplePerson;
-import com.example.application.data.service.SamplePersonService;
+package org.vaadin.erik.views.masterdetail;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
@@ -17,28 +14,27 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
-import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
+import com.vaadin.flow.data.renderer.TemplateRenderer;
+import com.vaadin.flow.router.*;
 import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.PageTitle;
-import com.example.application.views.main.MainView;
-import com.vaadin.flow.data.renderer.TemplateRenderer;
-import com.vaadin.flow.component.datepicker.DatePicker;
-import com.vaadin.flow.component.checkbox.Checkbox;
-import com.vaadin.flow.component.textfield.TextField;
+import org.vaadin.erik.data.entity.SamplePerson;
+import org.vaadin.erik.data.service.SamplePersonService;
+import org.vaadin.erik.views.main.MainView;
 
-@Route(value = "master-detail1/:samplePersonID?/:action?(edit)", layout = MainView.class)
+import java.util.Optional;
+
+@Route(value = "master-detail/:samplePersonID?/:action?(edit)", layout = MainView.class)
+@RouteAlias(value = "", layout = MainView.class)
 @PageTitle("Master-Detail")
 public class MasterDetailView extends Div implements BeforeEnterObserver {
 
     private final String SAMPLEPERSON_ID = "samplePersonID";
-    private final String SAMPLEPERSON_EDIT_ROUTE_TEMPLATE = "master-detail1/%d/edit";
+    private final String SAMPLEPERSON_EDIT_ROUTE_TEMPLATE = "master-detail/%d/edit";
 
     private Grid<SamplePerson> grid = new Grid<>(SamplePerson.class, false);
 

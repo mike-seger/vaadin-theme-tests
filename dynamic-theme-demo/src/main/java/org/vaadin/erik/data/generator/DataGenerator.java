@@ -1,18 +1,16 @@
-package com.example.application.data.generator;
+package org.vaadin.erik.data.generator;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
-
-import com.example.application.data.service.SamplePersonRepository;
-import com.example.application.data.entity.SamplePerson;
-
-import java.time.LocalDateTime;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.vaadin.artur.exampledata.DataType;
 import org.vaadin.artur.exampledata.ExampleDataGenerator;
+import org.vaadin.erik.data.entity.SamplePerson;
+import org.vaadin.erik.data.service.SamplePersonRepository;
+
+import java.time.LocalDateTime;
 
 @SpringComponent
 public class DataGenerator {
@@ -31,7 +29,7 @@ public class DataGenerator {
 
             logger.info("... generating 100 Sample Person entities...");
             ExampleDataGenerator<SamplePerson> samplePersonRepositoryGenerator = new ExampleDataGenerator<>(
-                    SamplePerson.class, LocalDateTime.of(2021, 6, 10, 0, 0, 0));
+                    SamplePerson.class, LocalDateTime.of(2021, 5, 20, 0, 0, 0));
             samplePersonRepositoryGenerator.setData(SamplePerson::setId, DataType.ID);
             samplePersonRepositoryGenerator.setData(SamplePerson::setFirstName, DataType.FIRST_NAME);
             samplePersonRepositoryGenerator.setData(SamplePerson::setLastName, DataType.LAST_NAME);

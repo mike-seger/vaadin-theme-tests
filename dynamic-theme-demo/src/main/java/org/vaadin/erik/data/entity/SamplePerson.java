@@ -1,8 +1,8 @@
-package com.example.application.data.entity;
+package org.vaadin.erik.data.entity;
+
+import org.vaadin.erik.data.AbstractEntity;
 
 import javax.persistence.Entity;
-
-import com.example.application.data.AbstractEntity;
 import java.time.LocalDate;
 
 @Entity

@@ -1,9 +1,7 @@
-package com.example.application.data.service;
-
-import com.example.application.data.entity.SamplePerson;
+package org.vaadin.erik.data.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.time.LocalDate;
+import org.vaadin.erik.data.entity.SamplePerson;
 
 public interface SamplePersonRepository extends JpaRepository<SamplePerson, Integer> {
 
